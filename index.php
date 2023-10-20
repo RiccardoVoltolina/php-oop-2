@@ -10,47 +10,44 @@ organizzate il progetto come visto stamattina a lezione usando varie sottocartel
 
 class Categoria
 {
-    public $categoriaAnimale;
-    
+    public $nomeDellaCategoria;
 
-    public function __construct($categoriaAnimale) {
 
-        $this->categoriaAnimale = $categoriaAnimale;
-       
+    public function __construct($nomeDellaCategoria)
+    {
+
+        $this->nomeDellaCategoria = $nomeDellaCategoria;
     }
 }
 
-class Prodotto {
+class Prodotto
+{
 
     public $nome;
     public $prezzo;
     public $immagine;
     public $categoria;
-    
 
-    public function __construct($nome, $prezzo, $immagine, Categoria $categoria) {
+
+    public function __construct($nome, $prezzo, $immagine, Categoria $categoria)
+    {
 
         $this->nome = $nome;
         $this->prezzo = $prezzo;
-        $this->immagine =$immagine;
+        $this->immagine = $immagine;
         $this->categoria = $categoria;
-        // Corrisponde al controllo fatto in questo blocco:
-/*  if (is_null($prodotto->categoria)) {
-    $result = null;
-    } else {
-    $result = $prodotto->categoria->categoriaAnimale;
-    } */
     }
-    
 }
 
- 
 
-$pallina_gatto = new Prodotto('pallina', '5 euro', '', new Categoria('gatto'));
-$pallina_cane = new Prodotto('pallina', '5 euro', '', new Categoria('cane'));
+
+$pallina_gatto = new Prodotto('pallina', '5 euro', 'https://m.media-amazon.com/images/I/61ShS1de9nL._AC_UF894,1000_QL80_.jpg', new Categoria('Pallina per gatti'));
+$pallina_cane = new Prodotto('pallina', '5 euro', 'https://m.media-amazon.com/images/I/618n68cp2ZL._AC_UF894,1000_QL80_.jpg', new Categoria('Pallina per cani'));
+
+
 
 $prodottiArray = array($pallina_gatto, $pallina_cane);
-var_dump($prodottiArray)
+//var_dump($prodottiArray)
 
 
 
@@ -59,17 +56,42 @@ var_dump($prodottiArray)
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>e-commerce</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <style>
+        .card {
+            width: fit-content;
+            height: 100%;
+        }
+
+        img {
+            height: 300px;
+            width: 200px;
+        }
+    </style>
 </head>
-<body>
-    <?php foreach ($prodottiArray as $prodotto) :?>
-    <div class="card">
-        <?php echo $prodotto->categoria?>
+
+<body class="bg-secondary">
+    <h1 class="text-center">E-Commerce</h1>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+
+            <?php foreach ($prodottiArray as $prodotto) :  ?>
+                <div class="card text-center p-3 bg-black text-white me-3">
+                    <h1><?php echo $prodotto->categoria->nomeDellaCategoria ?></h1>
+                    <div class="pb-2">
+                        <img src="<?= $prodotto->immagine ?>">
+                    </div>
+                    <div><?php echo $prodotto->nome ?></div>
+                    <div><?php echo $prodotto->prezzo ?></div>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
-    <?php endforeach; ?>
 </body>
+
 </html>

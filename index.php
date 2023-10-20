@@ -34,13 +34,23 @@ class Prodotto {
         $this->prezzo = $prezzo;
         $this->immagine =$immagine;
         $this->categoria = $categoria;
+        // Corrisponde al controllo fatto in questo blocco:
+/*  if (is_null($prodotto->categoria)) {
+    $result = null;
+    } else {
+    $result = $prodotto->categoria->categoriaAnimale;
+    } */
     }
+    
 }
 
-$gatto = new Prodotto('pallina', '5 euro', '', new Categoria('gatto'));
-$cane = new Prodotto('pallina', '5 euro', '', new Categoria('cane'));
+ 
 
-$prodottiArray = array($gatto, $cane);
+$pallina_gatto = new Prodotto('pallina', '5 euro', '', new Categoria('gatto'));
+$pallina_cane = new Prodotto('pallina', '5 euro', '', new Categoria('cane'));
+
+$prodottiArray = array($pallina_gatto, $pallina_cane);
+var_dump($prodottiArray)
 
 
 
@@ -52,13 +62,13 @@ $prodottiArray = array($gatto, $cane);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>e-commerce</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
 </head>
 <body>
     <?php foreach ($prodottiArray as $prodotto) :?>
-    <div>
-        <?php echo $prodotto?>
-
+    <div class="card">
+        <?php echo $prodotto->categoria?>
     </div>
     <?php endforeach; ?>
 </body>

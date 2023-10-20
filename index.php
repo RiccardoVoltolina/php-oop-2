@@ -1,5 +1,4 @@
 <?php
-
 /* Immaginare quali sono le classi necessarie per creare uno shop online con le seguenti caratteristiche:
 L'e-commerce vende prodotti per animali.
 I prodotti sono categorizzati, le categorie sono Cani o Gatti.
@@ -8,50 +7,9 @@ Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, 
 Bonus (non opzionale):
 organizzate il progetto come visto stamattina a lezione usando varie sottocartelle per inserire classi, layout e dati. */
 
-class Categoria
-{
-    public $nomeDellaCategoria;
-
-
-    public function __construct($nomeDellaCategoria)
-    {
-
-        $this->nomeDellaCategoria = $nomeDellaCategoria;
-    }
-}
-
-class Prodotto
-{
-
-    public $nome;
-    public $prezzo;
-    public $immagine;
-    public $categoria;
-
-
-    public function __construct($nome, $prezzo, $immagine, Categoria $categoria)
-    {
-
-        $this->nome = $nome;
-        $this->prezzo = $prezzo;
-        $this->immagine = $immagine;
-        $this->categoria = $categoria;
-    }
-}
-
-
-
-$pallina_gatto = new Prodotto('pallina', '5 euro', 'https://m.media-amazon.com/images/I/61ShS1de9nL._AC_UF894,1000_QL80_.jpg', new Categoria('Pallina per gatti'));
-$pallina_cane = new Prodotto('pallina', '5 euro', 'https://m.media-amazon.com/images/I/618n68cp2ZL._AC_UF894,1000_QL80_.jpg', new Categoria('Pallina per cani'));
-
-
-
-$prodottiArray = array($pallina_gatto, $pallina_cane);
-//var_dump($prodottiArray)
-
-
-
-
+require __DIR__ . '/classi/categoria.php';
+require __DIR__ . '/classi/prodotto.php';
+require __DIR__ . '/dati.php';
 ?>
 
 <!DOCTYPE html>
@@ -86,8 +44,8 @@ $prodottiArray = array($pallina_gatto, $pallina_cane);
                     <div class="pb-2">
                         <img src="<?= $prodotto->immagine ?>">
                     </div>
-                    <div><?php echo $prodotto->nome ?></div>
-                    <div><?php echo $prodotto->prezzo ?></div>
+                    <div>Descrizione: <?php echo $prodotto->nome ?></div>
+                    <div>Prezzo: <?php echo $prodotto->prezzo ?></div>
                 </div>
             <?php endforeach; ?>
         </div>

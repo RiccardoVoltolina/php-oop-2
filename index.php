@@ -8,37 +8,42 @@ Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, 
 Bonus (non opzionale):
 organizzate il progetto come visto stamattina a lezione usando varie sottocartelle per inserire classi, layout e dati. */
 
-class Prodotti
+class Categoria
 {
-    public $cibo;
-    public $giochi;
-    public $cucce;
-    public $prezzo;
-    public $titolo;
-    public $immagine;
+    public $categoriaAnimale;
+    
 
-    public function __construct($cibo, $giochi, $cucce, $prezzo, $titolo, $immagine) {
+    public function __construct($categoriaAnimale) {
 
-        $this->cibo = $cibo;
-        $this->giochi = $giochi;
-        $this->cucce = $cucce;
-        $this->prezzo = $prezzo;
-        $this->titolo = $titolo;
-        $this->immagine = $immagine;
+        $this->categoriaAnimale = $categoriaAnimale;
+       
     }
 }
 
-$e_commerce = new prodotti('cibo per cani', 'pallina', 'cucce per cani', '30 euro', 'e-commerce', '');
+class Prodotto {
 
-$prodottiArray = array($e_commerce);
-
-class Cani extends prodotti {
-
-}
-
-class Gatti extends prodotti {
+    public $nome;
+    public $prezzo;
+    public $immagine;
+    public $categoria;
     
+
+    public function __construct($nome, $prezzo, $immagine, Categoria $categoria) {
+
+        $this->nome = $nome;
+        $this->prezzo = $prezzo;
+        $this->immagine =$immagine;
+        $this->categoria = $categoria;
+    }
 }
+
+$gatto = new Prodotto('pallina', '5 euro', '', new Categoria('gatto'));
+$cane = new Prodotto('pallina', '5 euro', '', new Categoria('cane'));
+
+$prodottiArray = array($gatto, $cane);
+
+
+
 
 ?>
 
@@ -52,7 +57,7 @@ class Gatti extends prodotti {
 <body>
     <?php foreach ($prodottiArray as $prodotto) :?>
     <div>
-        <?php echo $prodotto->cibo?>
+        <?php echo $prodotto?>
 
     </div>
     <?php endforeach; ?>

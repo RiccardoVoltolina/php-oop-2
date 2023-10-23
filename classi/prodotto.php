@@ -22,17 +22,6 @@ class Prodotto
         $this->categoria = $categoria;
     }
 
-    //setto le funzioni che quando saranno invocate nell'index,mi consentiranno di settare il nome
-    
-    function getName(): string
-    {
-        return $this->nome;
-    }
-
-    function setName($nuovo_nome)
-    {
-        $this-> nome = $nuovo_nome;
-    }
 }
 
 

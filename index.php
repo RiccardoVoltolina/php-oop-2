@@ -76,7 +76,7 @@ try{
                         <img src="<?= $prodotto->immagine ?>">
                     </div>
                     <div>Descrizione: <?php echo $prodotto->getName() ?></div>
-                    <div>Prezzo: <?php echo $prodotto->prezzo ?></div>
+                    <div>Prezzo: <?php echo $prodotto->getPrice() ?></div>
                 </div>
             <?php endforeach; ?>
         </div>

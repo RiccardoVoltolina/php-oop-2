@@ -1,11 +1,16 @@
 <?php
 
+//importo i file dove ho creato i miei trait
+
+require_once __DIR__ . '/Prezzoable.php';
+
 require_once __DIR__ . '/Namable.php';
 class Prodotto
 {
     //richiamo il mio trait,creato nel componente Namable
 
     use Namable;
+    use Prezzoable;
 
     public $prezzo;
     public $categoria;

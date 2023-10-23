@@ -11,17 +11,24 @@ require __DIR__ . '/classi/categoria.php';
 require __DIR__ . '/classi/prodotto.php';
 require __DIR__ . '/dati.php';
 
+//creo una funzione per verificare che l'user text sia settato
+
 function userText () {
 
     if(!isset($_GET['findObject'])) {
+
+        //se non è settato, creo un messaggio di errore
+
         throw new Exception('l utente non ha cercato nessuno');
     }
     $userSearch = $_GET['findObject'];
     return $userSearch;
 }
 
+//con il try, intercetto l'errore e successivamente lo stampo in pagina
+
 try{
-    echo userText();
+    //echo userText();
 } catch (Exception $e) {
     echo 'eccezione:' . $e->getMessage();
 }

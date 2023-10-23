@@ -4,6 +4,9 @@
 
 trait Namable {
 
+    public $nome;
+
+
     //creo una funzione che prende il nome
 
     public function getName(): string {

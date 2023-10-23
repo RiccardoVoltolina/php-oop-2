@@ -21,11 +21,6 @@ class Prodotto
         $this->categoria = $categoria;
     }
 
-   /*  public function checkValidNameValue ($nome) {
-        if (is_numeric($nome)) {
-            throw new Exception('non deve essere un numero, inserisci un nome')
-        }
-    } */
 }
 
 

@@ -10,6 +10,23 @@ organizzate il progetto come visto stamattina a lezione usando varie sottocartel
 require __DIR__ . '/classi/categoria.php';
 require __DIR__ . '/classi/prodotto.php';
 require __DIR__ . '/dati.php';
+
+function userText () {
+
+    if(!isset($_GET['findObject'])) {
+        throw new Exception('l utente non ha cercato nessuno');
+    }
+    $userSearch = $_GET['findObject'];
+    return $userSearch;
+}
+
+try{
+    echo userText();
+} catch (Exception $e) {
+    echo 'eccezione:' . $e->getMessage();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +52,13 @@ require __DIR__ . '/dati.php';
 
 <body class="bg-secondary">
     <h1 class="text-center">E-Commerce</h1>
-    <form action="./index.php" method=""></form>
+    <form action="./index.php" method="GET">
+        <input type="text" name="findObject" id="findObject" placeholder="cerca un oggetto">
+        <button type="submit">invia</button>
+    </form>
+    <?php if(isset($_GET['findObject'])) :?>
+    <div><?php echo userText() ?></div>
+    <?php endif; ?>
     <div class="container mt-5">
         <div class="row justify-content-center">
 
@@ -51,6 +74,7 @@ require __DIR__ . '/dati.php';
             <?php endforeach; ?>
         </div>
     </div>
+
 </body>
 
 </html>

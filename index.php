@@ -28,8 +28,8 @@ function userText () {
 //con il try, intercetto l'errore e successivamente lo stampo in pagina
 
 try{
-    //echo userText();
-} catch (Exception $e) {
+    echo userText();
+}   catch (Exception $e) {
     echo 'eccezione:' . $e->getMessage();
 }
 

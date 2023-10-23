@@ -8,8 +8,8 @@ class Prodotto
     use Namable;
 
     public $prezzo;
-    public $immagine;
     public $categoria;
+    public $immagine;
 
 
     public function __construct($nome, $prezzo, $immagine, Categoria $categoria)

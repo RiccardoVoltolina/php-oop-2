@@ -44,7 +44,7 @@ require __DIR__ . '/dati.php';
                     <div class="pb-2">
                         <img src="<?= $prodotto->immagine ?>">
                     </div>
-                    <div>Descrizione: <?php echo $prodotto->nome ?></div>
+                    <div>Descrizione: <?php echo $prodotto->getName() ?></div>
                     <div>Prezzo: <?php echo $prodotto->prezzo ?></div>
                 </div>
             <?php endforeach; ?>

@@ -35,6 +35,7 @@ require __DIR__ . '/dati.php';
 
 <body class="bg-secondary">
     <h1 class="text-center">E-Commerce</h1>
+    <form action="./index.php" method=""></form>
     <div class="container mt-5">
         <div class="row justify-content-center">
 
